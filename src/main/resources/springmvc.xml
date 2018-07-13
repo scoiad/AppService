@@ -6,9 +6,14 @@
 
     <context:component-scan base-package="com.coiad.appservice">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+        <context:include-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+
+    <mvc:interceptors>
+        <bean class="com.coiad.appservice.interceptor.RestFulInterceptor"/>
+    </mvc:interceptors>
 </beans>

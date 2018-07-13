@@ -1,8 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="AppService:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/AppService_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/AppService-1.0-SNAPSHOT</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="AppService/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="AppService" />
@@ -46,6 +45,10 @@
           <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.7" />
         </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/AppService-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="AppService/web/Web" />
     </root>
   </artifact>
 </component>

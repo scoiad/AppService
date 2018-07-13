@@ -5,13 +5,35 @@
 <hibernate-mapping>
     <class name="com.coiad.appservice.bean.UserBean" table="t_user">
         <id name="id" column="id">
-            <generator class="native"></generator>
+            <generator class="native"/>
         </id>
-        <property name="phone" column="phone"></property>
-        <property name="password" column="password"></property>
-        <property name="username" column="username"></property>
-        <property name="sex" column="sex"></property>
-        <property name="age" column="age"></property>
+        <property name="phone" column="phone"/>
+        <property name="password" column="password"/>
+        <property name="username" column="username"/>
+        <property name="sex" column="sex"/>
+        <property name="age" column="age"/>
+        <property name="token" column="token"/>
+    </class>
+
+    <class name="com.coiad.appservice.bean.AnniversaryBean" table="t_anniversary">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="anniversaryName" column="anniversaryName"/>
+        <property name="anniversaryDate" column="anniversaryDate"/>
+        <property name="hundredDate" column="hundredDate"/>
+        <property name="monthFlag" column="monthFlag"/>
+        <property name="yearFlag" column="yearFlag"/>
+        <property name="hundredFlag" column="hundredFlag"/>
+    </class>
+
+    <class name="com.coiad.appservice.bean.TokenBean" table="t_token">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="phone" column="phone"/>
+        <property name="token" column="token"/>
+        <property name="expiredDate" column="expiredDate"/>
     </class>
 
 </hibernate-mapping>
