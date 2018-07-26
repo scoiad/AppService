@@ -2,7 +2,6 @@ package com.coiad.appservice.bean;
 
 import com.coiad.appservice.util.CustomDateSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -14,6 +13,8 @@ public class AnniversaryBean {
     private boolean hundredFlag;
     private boolean monthFlag;
     private boolean yearFlag;
+    private String phone;
+    private String color;
 
     public int getId() {
         return id;
@@ -71,5 +72,21 @@ public class AnniversaryBean {
 
     public void setHundredFlag(boolean hundredFlag) {
         this.hundredFlag = hundredFlag;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

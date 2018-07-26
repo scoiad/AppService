@@ -1,5 +1,16 @@
 package com.coiad.appservice.service;
 
+import cn.jiguang.common.ClientConfig;
+import cn.jiguang.common.resp.APIConnectionException;
+import cn.jiguang.common.resp.APIRequestException;
+import cn.jpush.api.JPushClient;
+import cn.jpush.api.push.PushResult;
+import cn.jpush.api.push.model.Platform;
+import cn.jpush.api.push.model.PushPayload;
+import cn.jpush.api.push.model.audience.Audience;
+import cn.jpush.api.push.model.notification.AndroidNotification;
+import cn.jpush.api.push.model.notification.IosNotification;
+import cn.jpush.api.push.model.notification.Notification;
 import com.coiad.appservice.bean.RestFulBean;
 import com.coiad.appservice.bean.TokenBean;
 import com.coiad.appservice.bean.UserBean;
@@ -15,6 +26,9 @@ import java.util.Date;
 
 @Transactional
 public class UserService {
+
+    private final static String MASTER_SECRET = "6225095981be8c4af13371d5";
+    private final static String APP_KEY = "48759b1b893c001db450f338";
 
     @Autowired
     private UserDao userDao;
@@ -37,6 +51,7 @@ public class UserService {
     }
 
     public RestFulBean<UserBean> login(String phone, String password) {
+
         UserBean user = userDao.login(phone, password);
         if (user != null) {
             saveOrUpdateToken(user);

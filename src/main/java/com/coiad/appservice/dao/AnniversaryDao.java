@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AnniversaryDao {
 
-    AnniversaryBean getAnniversary(int id);
+    AnniversaryBean getAnniversary(int id, String phone);
 
     boolean saveAnniversary(AnniversaryBean bean);
 
@@ -14,5 +14,7 @@ public interface AnniversaryDao {
 
     boolean deleteAnniversary(int id);
 
-    List<AnniversaryBean> getAnniList();
+    List<AnniversaryBean> getAnniList(String phone);
+
+    List<AnniversaryBean> getAllList();
 }

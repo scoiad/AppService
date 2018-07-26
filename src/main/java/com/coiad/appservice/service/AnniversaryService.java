@@ -4,7 +4,6 @@ import com.coiad.appservice.bean.AnniversaryBean;
 import com.coiad.appservice.bean.RestFulBean;
 import com.coiad.appservice.dao.AnniversaryDao;
 import com.coiad.appservice.util.RestFulUtil;
-import com.sun.istack.internal.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,8 +50,8 @@ public class AnniversaryService {
         }
     }
 
-    public RestFulBean<AnniversaryBean> getAnniversary(int id) {
-        AnniversaryBean anniversaryBean = anniversaryDao.getAnniversary(id);
+    public RestFulBean<AnniversaryBean> getAnniversary(int id, String phone) {
+        AnniversaryBean anniversaryBean = anniversaryDao.getAnniversary(id, phone);
         if (anniversaryBean != null) {
             return RestFulUtil.getInstance().getRestFulBean(anniversaryBean, 0, "查询成功");
         } else {
@@ -60,8 +59,8 @@ public class AnniversaryService {
         }
     }
 
-    public RestFulBean<List<AnniversaryBean>> getAnniversaryList() {
-        List<AnniversaryBean> mList = anniversaryDao.getAnniList();
+    public RestFulBean<List<AnniversaryBean>> getAnniversaryList(String phone) {
+        List<AnniversaryBean> mList = anniversaryDao.getAnniList(phone);
         if (mList != null) {
             return RestFulUtil.getInstance().getRestFulBean(mList, 0, "查询成功");
         } else {
@@ -69,7 +68,7 @@ public class AnniversaryService {
         }
     }
 
-    private void calHundredDay(@NotNull AnniversaryBean bean) {
+    private void calHundredDay(AnniversaryBean bean) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(bean.getAnniversaryDate());
         calendar.add(Calendar.DATE, 100);

@@ -25,6 +25,8 @@
         <property name="monthFlag" column="monthFlag"/>
         <property name="yearFlag" column="yearFlag"/>
         <property name="hundredFlag" column="hundredFlag"/>
+        <property name="phone" column="phone"/>
+        <property name="color" column="color"/>
     </class>
 
     <class name="com.coiad.appservice.bean.TokenBean" table="t_token">

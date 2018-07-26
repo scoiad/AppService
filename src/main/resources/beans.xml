@@ -6,13 +6,14 @@
 
     <context:component-scan base-package="com.coiad.appservice" use-default-filters="false">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
     <!-- 配置c3p0链接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql:///app_server_db"/>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/app_server_db"/>
         <property name="user" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -32,8 +33,15 @@
 
     <!-- 配置server -->
     <bean id="loginService" class="com.coiad.appservice.service.UserService"/>
+    <bean id="anniversaryService" class="com.coiad.appservice.service.AnniversaryService"/>
     <!-- 配置dao -->
     <bean id="userDaoImpl" class="com.coiad.appservice.dao.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="anniversaryDaoImpl" class="com.coiad.appservice.dao.AnniversaryDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="tokenDaoImpl" class="com.coiad.appservice.dao.TokenDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 </beans>
